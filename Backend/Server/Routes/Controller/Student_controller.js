@@ -1,5 +1,6 @@
-const connection=require('../Database/mysql')
+const connection = require('../Database/mysql')
 
+// Fetch Data
 exports.view = (req, res) => {
     connection.getConnection((err, connection) => {
         if (err) {
@@ -8,13 +9,11 @@ exports.view = (req, res) => {
         }
         console.log('MySQL connected');
 
-        connection.query("SELECT * FROM students", (err, records) => {
+        connection.query("SELECT * FROM STUDENTS", (err, records) => {
 
             connection.release();
 
             if (!err) {
-                console.log("Query successful");
-
                 res.status(200).send(records);
             } else {
                 console.error('Error executing query:', err);
@@ -24,6 +23,7 @@ exports.view = (req, res) => {
     });
 };
 
+// Add-Data
 exports.insert = (req, res) => {
     connection.getConnection((err, connection) => {
         if (err) {
@@ -34,13 +34,64 @@ exports.insert = (req, res) => {
 
         const { firstname, lastname, location, email, education, dob } = req.body;
 
-        connection.query("INSERT INTO students(firstname,lastname,location,email,education,dob)VALUES(?,?,?,?,?,?)", [firstname, lastname, location, email, education, dob], (err, records) => {
+        connection.query("INSERT INTO STUDENTS(firstname,lastname,location,email,education,dob)VALUES(?,?,?,?,?,?)", [firstname, lastname, location, email, education, dob], (err, records) => {
 
             connection.release();
 
             if (!err) {
-                console.log("Query successful");
+                res.status(200).send(records);
+            } else {
+                console.error('Error executing query:', err);
+                res.status(500).send('Error executing query');
+            }
+        });
+    });
+};
 
+// Update-Data
+
+exports.update = (req, res) => {
+    connection.getConnection((err, connection) => {
+        if (err) {
+            console.error('Error connecting to MySQL:', err);
+            return res.status(500).send('Error connecting to database');
+        }
+        console.log('MySQL connected');
+
+        const { firstname, lastname, location, email, education, dob } = req.body;
+        const id = req.params.id;
+
+        connection.query("update STUDENTS set firstname=?,lastname=?,location=?,email=?,education=?,dob=? where id=?", [firstname, lastname, location, email, education, dob, id], (err, records) => {
+
+            connection.release();
+
+            if (!err) {
+                res.status(200).send(records);
+            } else {
+                console.error('Error executing query:', err);
+                res.status(500).send('Error executing query');
+            }
+        });
+    });
+};
+
+// Delete Data
+exports.delete = (req, res) => {
+    connection.getConnection((err, connection) => {
+        if (err) {
+            console.error('Error connecting to MySQL:', err);
+            return res.status(500).send('Error connecting to database');
+        }
+        console.log('MySQL connected');
+
+        const { firstname, lastname, location, email, education, dob } = req.body;
+        const id = req.params.id;
+
+        connection.query("delete from STUDENTS where id=?", [id], (err, records) => {
+
+            connection.release();
+
+            if (!err) {
                 res.status(200).send(records);
             } else {
                 console.error('Error executing query:', err);

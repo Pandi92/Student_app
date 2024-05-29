@@ -1,14 +1,15 @@
-//imports
+//Imports
 const express = require('express');
 const app = express();
 const body_parser=require('body-parser');
 require('dotenv').config();
 
+// Middleware
 app.use(body_parser.urlencoded({extended:false}))
 app.use(body_parser.json())
 
 //Port value
-const Port = 8080;
+const Port = process.env.PORT;
 
 // Routes
 const student_Route=require('./Server/Routes/Student_Routes')
@@ -22,4 +23,4 @@ app.get("/", (req, res) => {
 
 
 // Listen Port
-app.listen(Port, () => console.log(`Server is Starting...${Port}`))
+app.listen(Port, () => console.log(`Server is Starting ${Port} Port Value`))
