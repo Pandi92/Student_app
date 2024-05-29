@@ -1,13 +1,13 @@
 const connection = require('../Database/mysql')
 
-// Fetch Data
+// Fetch All Data
 exports.view = (req, res) => {
     connection.getConnection((err, connection) => {
         if (err) {
             console.error('Error connecting to MySQL:', err);
             return res.status(500).send('Error connecting to database');
         }
-        console.log('MySQL connected');
+        // console.log('MySQL connected');
 
         connection.query("SELECT * FROM STUDENTS", (err, records) => {
 
@@ -23,6 +23,30 @@ exports.view = (req, res) => {
     });
 };
 
+// Fetch By Id
+exports.viewById = (req, res) => {
+    connection.getConnection((err, connection) => {
+        if (err) {
+            console.error('Error connecting to MySQL:', err);
+            return res.status(500).send('Error connecting to database');
+        }
+        // console.log('MySQL connected');
+        const id = req.params.id;
+        connection.query("SELECT * FROM STUDENTS where id=?", [id], (err, records) => {
+
+            connection.release();
+
+            if (!err) {
+                res.status(200).send(records);
+            } else {
+                console.error('Error executing query:', err);
+                res.status(500).send('Error executing query');
+            }
+        });
+    });
+};
+
+
 // Add-Data
 exports.insert = (req, res) => {
     connection.getConnection((err, connection) => {
@@ -30,7 +54,7 @@ exports.insert = (req, res) => {
             console.error('Error connecting to MySQL:', err);
             return res.status(500).send('Error connecting to database');
         }
-        console.log('MySQL connected');
+        // console.log('MySQL connected');
 
         const { firstname, lastname, location, email, education, dob } = req.body;
 
@@ -49,14 +73,13 @@ exports.insert = (req, res) => {
 };
 
 // Update-Data
-
 exports.update = (req, res) => {
     connection.getConnection((err, connection) => {
         if (err) {
             console.error('Error connecting to MySQL:', err);
             return res.status(500).send('Error connecting to database');
         }
-        console.log('MySQL connected');
+        // console.log('MySQL connected');
 
         const { firstname, lastname, location, email, education, dob } = req.body;
         const id = req.params.id;
@@ -82,7 +105,7 @@ exports.delete = (req, res) => {
             console.error('Error connecting to MySQL:', err);
             return res.status(500).send('Error connecting to database');
         }
-        console.log('MySQL connected');
+        // console.log('MySQL connected');
 
         const { firstname, lastname, location, email, education, dob } = req.body;
         const id = req.params.id;
