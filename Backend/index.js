@@ -1,19 +1,22 @@
 //Imports
 const express = require('express');
 const app = express();
-const body_parser=require('body-parser');
+const body_parser = require('body-parser');
+const cors = require('cors');
 require('dotenv').config();
 
+
 // Middleware
-app.use(body_parser.urlencoded({extended:false}))
+app.use(cors());
+app.use(body_parser.urlencoded({ extended: false }))
 app.use(body_parser.json())
 
 //Port value
 const Port = process.env.PORT;
 
 // Routes
-const student_Route=require('./Server/Routes/Student_Routes')
-app.use('/',student_Route)
+const student_Route = require('./Server/Routes/Student_Routes')
+app.use('/', student_Route)
 
 
 //Test server
