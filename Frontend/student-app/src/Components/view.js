@@ -20,7 +20,7 @@ const View = () => {
         <div>
             <table className='table table-dark text-center table table-hover'>
                 <thead>
-                    <tr>
+                    <tr className='p-5'>
                         <th scope='col'>ID</th>
                         <th scope='col'>First Name</th>
                         <th scope='col'>Last Name</th>

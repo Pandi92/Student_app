@@ -56,7 +56,7 @@ exports.insert = (req, res) => {
         }
         // console.log('MySQL connected');
 
-        const { firstname, lastname, location, email, education, dob } = req.body;
+        const { firstname, lastname, location, email, education, dob, about } = req.body;
 
         connection.query("INSERT INTO STUDENTS(firstname,lastname,location,email,education,dob)VALUES(?,?,?,?,?,?)", [firstname, lastname, location, email, education, dob], (err, records) => {
 
