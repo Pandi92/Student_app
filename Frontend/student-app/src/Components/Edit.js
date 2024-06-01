@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import './create.css'
 
 const Edit = () => {
     const [view, setView] = useState([]);
@@ -63,37 +64,37 @@ const Edit = () => {
     return (
         <div>
             <h3 className='text-center fw-bolder shadow-sm border-bottom'>EDIT STUDENT</h3>
-            <form onSubmit={handleSubmit} className=''>
-                <div className='firstname'>
-                    <label>First Name:</label>
-                    <input type='text' value={firstname} onChange={(e) => setFirstname(e.target.value)} />
-                </div>
-                <div className='lastname'>
-                    <label>Last Name:</label>
-                    <input type='text' value={lastname} onChange={(e) => setLastname(e.target.value)} />
-                </div>
-                <div className='location'>
-                    <label className='me-2'>Location:</label>
-                    <input type='text' value={location} onChange={(e) => setLocation(e.target.value)} />
+            <form onSubmit={handleSubmit} className='form'>
+                <div>
+                    <label  className='label'>First Name:</label>
+                    <input className='input' type='text' value={firstname} onChange={(e) => setFirstname(e.target.value)} />
                 </div>
                 <div>
-                    <label>Email:</label>
-                    <input className='ms-5' type='email' value={email} onChange={(e) => setEmail(e.target.value)} />
-                </div>
-                <div className='education'>
-                    <label className='ms-4'>Education:</label>
-                    <input type='text' value={education} onChange={(e) => setEducation(e.target.value)} />
+                    <label  className='label'>Last Name:</label>
+                    <input className='input' type='text' value={lastname} onChange={(e) => setLastname(e.target.value)} />
                 </div>
                 <div>
-                    <label>DOB:</label>
-                    <input className='ms-5' type='text' value={dob} placeholder='DD-MM-YYYY' onChange={(e) => setDob(e.target.value)} />
+                    <label  className='label' >Location:</label>
+                    <input className='input' type='text' value={location} onChange={(e) => setLocation(e.target.value)} />
                 </div>
                 <div>
-                    <label className='my-5'>About:</label>
-                    <textarea className='p-5' value={about} onChange={(e) => setAbout(e.target.value)} />
+                    <label  className='label'>Email:</label>
+                    <input className='input'  type='email' value={email} onChange={(e) => setEmail(e.target.value)} />
+                </div>
+                <div >
+                    <label  className='label'>Education:</label>
+                    <input className='input' type='text' value={education} onChange={(e) => setEducation(e.target.value)} />
                 </div>
                 <div>
-                    <button className='btn btn-success text-center' type="submit">Update</button>
+                    <label  className='label'>DOB:</label>
+                    <input className='input'  type='text' value={dob} placeholder='DD-MM-YYYY' onChange={(e) => setDob(e.target.value)} />
+                </div>
+                <div>
+                    <label  className='label'>About:</label>
+                    <textarea className='textarea' value={about} onChange={(e) => setAbout(e.target.value)} />
+                </div>
+                <div>
+                    <button type="submit">Update</button>
                 </div>
             </form>
         </div>

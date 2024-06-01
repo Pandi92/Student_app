@@ -1,0 +1,50 @@
+.form {
+    width: 400px;
+    height: 83vh;
+    margin-top: 0px;
+    background-color: rgba(0, 0, 0, 0.865);
+    margin: 0 auto;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border-radius: 25px;
+    padding: 5px 10px;
+}
+
+.input {
+    border-radius: 5px;
+    padding: 3px 10px;
+    margin: 0 auto;
+    margin: 2px 2px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.input::placeholder {
+    text-align: center;
+}
+
+.input:focus {
+    border: 2px;
+    background-color: cornsilk;
+}
+
+.label {
+    font-weight: bolder;
+    text-align: center;
+    display: block;
+}
+
+.textarea {
+    width: 100%;
+    padding: 10px;
+}
+
+.form button {
+    background-color: green;
+    border-radius: 5px;
+    padding: 3px 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-weight: bolder;
+    margin-top: 0px auto;
+}

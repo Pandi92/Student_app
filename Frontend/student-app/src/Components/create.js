@@ -42,39 +42,39 @@ const Create = () => {
 
   return (
     <div>
-      <h3 className='text-center text-success mb-4'>ADD-STUDENTS</h3>
-      <form onSubmit={handlesubmit} className=''>
+      <h3 className='text-center fw-bolder shadow-sm border-bottom'>ADD-STUDENTS</h3>
+      <form onSubmit={handlesubmit} className='form'>
 
-        <div className='firstname'>
-          <label>First Name:</label>
-          <input type='text' onChange={(e) => setFirstname(e.target.value)} />
-        </div>
-        <div className='lastname'>
-          <label>Last Name:</label>
-          <input type='text' onChange={(e) => setLastname(e.target.value)} />
-        </div>
-        <div className='location'>
-          <label className='me-2'>Location:</label>
-          <input type='text' onChange={(e) => setLocation(e.target.value)} />
+        <div>
+          <label className='label'>First Name:</label>
+          <input className='input' type='text' onChange={(e) => setFirstname(e.target.value)} />
         </div>
         <div>
-          <label>Email:</label>
-          <input className='ms-5' type='email' onChange={(e) => setEmail(e.target.value)} />
-        </div>
-        <div className='education'>
-          <label className='ms-4'>Education:</label>
-          <input type='text' onChange={(e) => setEducation(e.target.value)} />
+          <label className='label'>Last Name:</label>
+          <input className='input' type='text' onChange={(e) => setLastname(e.target.value)} />
         </div>
         <div>
-          <label>DOB:</label>
-          <input className='ms-5' type='text' placeholder='DDD-MMM-YYY' onChange={(e) => setDob(e.target.value)} />
+          <label className='label'>Location:</label>
+          <input className='input' type='text' onChange={(e) => setLocation(e.target.value)} />
         </div>
         <div>
-          <label className='my-5'>About:</label>
-          <textarea className='p-5' onChange={(e) => setAbout(e.target.value)} />
+          <label className='label'>Email:</label>
+          <input className='input' type='email' onChange={(e) => setEmail(e.target.value)} />
         </div>
         <div>
-          <button className='btn btn-success text-center' type="submit">Submit</button>
+          <label className='label'>Education:</label>
+          <input className='input' type='text' onChange={(e) => setEducation(e.target.value)} />
+        </div>
+        <div>
+          <label className='label'>DOB:</label>
+          <input className='input' type='text' placeholder='DDD-MMM-YYY' onChange={(e) => setDob(e.target.value)} />
+        </div>
+        <div>
+          <label className='label'>About:</label>
+          <textarea className='textarea' onChange={(e) => setAbout(e.target.value)} />
+        </div>
+        <div>
+          <button type="submit">Submit</button>
         </div>
       </form>
     </div>
