@@ -17,7 +17,7 @@ const Create = () => {
   function handlesubmit(e) {
     e.preventDefault();
     if (!firstname || !lastname || !location || !email || !education || !dob) {
-      return alert("Please Fill The All Details Expert About")
+      return alert("Please Fill The All Details")
     }
 
     axios.post('http://localhost:8080/add-student', {

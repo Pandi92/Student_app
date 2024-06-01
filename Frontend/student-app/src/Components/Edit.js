@@ -25,7 +25,6 @@ const Edit = () => {
                 const data = response.data[0];
                 setView(data);
 
-                // Set initial state for the form fields
                 setFirstname(data.firstname);
                 setLastname(data.lastname);
                 setLocation(data.location);
@@ -41,7 +40,7 @@ const Edit = () => {
     function handleSubmit(e) {
         e.preventDefault();
         if (!firstname || !lastname || !location || !email || !education || !dob) {
-            alert("Please Fill The All Details Expert About")
+            alert("Please Fill The All Details")
         }
         axios.put(`http://localhost:8080/edit-student/${viewid}`, {
             firstname,
@@ -66,31 +65,31 @@ const Edit = () => {
             <h3 className='text-center fw-bolder shadow-sm border-bottom'>EDIT STUDENT</h3>
             <form onSubmit={handleSubmit} className='form'>
                 <div>
-                    <label  className='label'>First Name:</label>
+                    <label className='label'>First Name:</label>
                     <input className='input' type='text' value={firstname} onChange={(e) => setFirstname(e.target.value)} />
                 </div>
                 <div>
-                    <label  className='label'>Last Name:</label>
+                    <label className='label'>Last Name:</label>
                     <input className='input' type='text' value={lastname} onChange={(e) => setLastname(e.target.value)} />
                 </div>
                 <div>
-                    <label  className='label' >Location:</label>
+                    <label className='label' >Location:</label>
                     <input className='input' type='text' value={location} onChange={(e) => setLocation(e.target.value)} />
                 </div>
                 <div>
-                    <label  className='label'>Email:</label>
-                    <input className='input'  type='email' value={email} onChange={(e) => setEmail(e.target.value)} />
+                    <label className='label'>Email:</label>
+                    <input className='input' type='email' value={email} onChange={(e) => setEmail(e.target.value)} />
                 </div>
                 <div >
-                    <label  className='label'>Education:</label>
+                    <label className='label'>Education:</label>
                     <input className='input' type='text' value={education} onChange={(e) => setEducation(e.target.value)} />
                 </div>
                 <div>
-                    <label  className='label'>DOB:</label>
-                    <input className='input'  type='text' value={dob} placeholder='DD-MM-YYYY' onChange={(e) => setDob(e.target.value)} />
+                    <label className='label'>DOB:</label>
+                    <input className='input' type='text' value={dob} placeholder='DD-MM-YYYY' onChange={(e) => setDob(e.target.value)} />
                 </div>
                 <div>
-                    <label  className='label'>About:</label>
+                    <label className='label'>About:</label>
                     <textarea className='textarea' value={about} onChange={(e) => setAbout(e.target.value)} />
                 </div>
                 <div>

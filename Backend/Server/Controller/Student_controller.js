@@ -81,7 +81,7 @@ exports.update = (req, res) => {
         }
         // console.log('MySQL connected');
 
-        const { firstname, lastname, location, email, education, dob } = req.body;
+        const { firstname, lastname, location, email, education, dob, about } = req.body;
         const id = req.params.id;
 
         connection.query("update STUDENTS set firstname=?,lastname=?,location=?,email=?,education=?,dob=? where id=?", [firstname, lastname, location, email, education, dob, id], (err, records) => {
