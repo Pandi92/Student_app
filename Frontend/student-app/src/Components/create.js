@@ -67,7 +67,7 @@ const Create = () => {
         </div>
         <div>
           <label className='label'>DOB:</label>
-          <input className='input' type='text' placeholder='DDD-MMM-YYY' onChange={(e) => setDob(e.target.value)} />
+          <input className='input' type='text' placeholder='DD-MM-YYYY' onChange={(e) => setDob(e.target.value)} />
         </div>
         <div>
           <label className='label'>About:</label>

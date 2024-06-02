@@ -58,7 +58,7 @@ exports.insert = (req, res) => {
 
         const { firstname, lastname, location, email, education, dob, about } = req.body;
 
-        connection.query("INSERT INTO STUDENTS(firstname,lastname,location,email,education,dob)VALUES(?,?,?,?,?,?)", [firstname, lastname, location, email, education, dob], (err, records) => {
+        connection.query("INSERT INTO STUDENTS(firstname,lastname,location,email,education,dob,about)VALUES(?,?,?,?,?,?,?)", [firstname, lastname, location, email, education, dob, about], (err, records) => {
 
             connection.release();
 
@@ -84,7 +84,7 @@ exports.update = (req, res) => {
         const { firstname, lastname, location, email, education, dob, about } = req.body;
         const id = req.params.id;
 
-        connection.query("update STUDENTS set firstname=?,lastname=?,location=?,email=?,education=?,dob=? where id=?", [firstname, lastname, location, email, education, dob, id], (err, records) => {
+        connection.query("update STUDENTS set firstname=?,lastname=?,location=?,email=?,education=?,dob=?,about=? where id=?", [firstname, lastname, location, email, education, dob, about, id], (err, records) => {
 
             connection.release();
 
@@ -107,7 +107,6 @@ exports.delete = (req, res) => {
         }
         // console.log('MySQL connected');
 
-        const { firstname, lastname, location, email, education, dob } = req.body;
         const id = req.params.id;
 
         connection.query("delete from STUDENTS where id=?", [id], (err, records) => {

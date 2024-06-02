@@ -24,8 +24,8 @@ connection.getConnection((err, conn) => {
             location VARCHAR(255) NOT NULL,
             email VARCHAR(80) NOT NULL,
             education VARCHAR(200) NOT NULL,
-            about VARCHAR(255) Null,
-            dob VARCHAR(25) NOT NULL
+              dob VARCHAR(25) NOT NULL,
+            about VARCHAR(255) NOT Null
         );
     `;
 
@@ -36,7 +36,7 @@ connection.getConnection((err, conn) => {
         console.log(`------------------------------------------------------------`);
         console.log("Database Name:\'STUDENT_APP\'\nTable Name:\'STUDENTS\'");
         console.log(`------------------------------------------------------------`);
-        
+
     });
 });
 

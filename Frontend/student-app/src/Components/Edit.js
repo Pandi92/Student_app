@@ -24,7 +24,6 @@ const Edit = () => {
                 console.log('Response data:', response.data);
                 const data = response.data[0];
                 setView(data);
-
                 setFirstname(data.firstname);
                 setLastname(data.lastname);
                 setLocation(data.location);
@@ -32,6 +31,7 @@ const Edit = () => {
                 setEducation(data.education);
                 setDob(data.dob);
                 setAbout(data.about);
+                
             }).catch((err) => {
                 console.error("There was an error fetching the data!", err);
             });
