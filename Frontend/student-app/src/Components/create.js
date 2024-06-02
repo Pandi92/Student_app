@@ -42,7 +42,7 @@ const Create = () => {
 
   return (
     <div>
-      <h3 className='text-center fw-bolder shadow-sm border-bottom'>ADD-STUDENTS</h3>
+      <h3 className='text-center fw-bolder shadow-sm border-bottom'>ADD-STUDENT</h3>
       <form onSubmit={handlesubmit} className='form'>
 
         <div>

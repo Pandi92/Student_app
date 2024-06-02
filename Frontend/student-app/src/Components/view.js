@@ -49,7 +49,7 @@ const View = () => {
 
     return (
         <div>
-            <h3 className='text-center fw-bolder shadow-sm border-bottom'>STUDENT CURD APPLICATIONS</h3>
+            <h3 className='text-center fw-bolder shadow-sm border-bottom'>STUDENT CRUD APPLICATIONS</h3>
             <input placeholder='Search Contacts' className='me-4 ms-1 rounded' onChange={(e) => setsearch(e.target.value)} />
             <button style={mystyle} onClick={Adddata}>Add Data</button>
             <table className='table text-center table-hover border mt-3'>
