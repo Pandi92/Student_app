@@ -2,6 +2,7 @@
 const express = require('express');
 const app = express();
 const body_parser = require('body-parser');
+const path = require('path');
 const cors = require('cors');
 require('dotenv').config();
 
@@ -10,6 +11,7 @@ require('dotenv').config();
 app.use(cors());
 app.use(body_parser.urlencoded({ extended: false }))
 app.use(body_parser.json())
+
 
 //Port value
 const Port = process.env.PORT;
@@ -22,6 +24,9 @@ app.use('/', student_Route)
 //Test server
 app.get("/", (req, res) => {
     res.send("Our server is start")
+})
+app.all('/*', (req, res) => {
+    res.status(404).send("400")
 })
 
 
